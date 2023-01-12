@@ -1,0 +1,28 @@
+<div>
+  <button (click)="startQuery()" [disabled]="isRunning">Start</button>
+  <button (click)="stopQuery()" [disabled]="!isRunning">Stop</button>
+
+  <input
+    type="text"
+    [(ngModel)]="intervalTime"
+    placeholder="Interval (seconds)"
+  />
+
+  <table *ngIf="issData">
+    <tr>
+      <th>#</th>
+      <th>Altitude</th>
+      <th>Velocity</th>
+      <th>Day Number</th>
+    </tr>
+    <tr class="table" *ngFor="let data of issData">
+      <td class="row">{{ data.date }}</td>
+
+      <td class="row">{{ data.altitude | number: '1.2-2' }}</td>
+
+      <td class="row">{{ data.velocity | number: '1.2-2' }}</td>
+
+      <td class="row">{{ data.daynum | number: '1.2-2' }}</td>
+    </tr>
+  </table>
+</div>
