@@ -1,0 +1,9 @@
+<button (click)="startQuery()" [disabled]="isRunning">Start</button>
+<button (click)="stopQuery()" [disabled]="!isRunning">Stop</button>
+
+<input
+  type="text"
+  [(ngModel)]="intervalTime"
+  placeholder="Interval (seconds)"
+/>
+<small *ngIf="hasError" class="error">Kindly enter interval (in seconds)</small>
